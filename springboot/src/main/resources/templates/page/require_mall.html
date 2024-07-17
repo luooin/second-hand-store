@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>求购商城</title>
+    <script src="/js/jquery-1.3.2.min.js"></script>
+    <script src="/js/home/header_model_js.js"></script>
+    <link rel="icon" href="/img/page_icon.png"/>
+    <link href="/css/home_page/header_and_nav.css" rel="stylesheet"/>
+    <link href="/css/require_mall/require_mall_other.css" rel="stylesheet"/>
+    <script>
+        function btnAction(){
+            window.location.href = '/require_mall.do';
+        };
+    </script>
+</head>
+<body>
+<header th:include="header :: copy"></header>
+<div th:include="short_nav_show :: short_nav_show" class="short_nav_show"></div>
+<nav th:include="my_nav :: my_nav" class="my_nav"></nav>
+<div th:include="personal_nav :: personal_nav" class="personal_nav"></div>
+<div class="temp_content" onmousedown="hideParticular()">
+    <button type="button" class="button" onclick="btnAction()">换一批</button>
+    <!--注意需要加一个br，不然会在同一行显示-->
+    <div class="require_content_div">
+        <div class="require_one_part" id="1" th:each="o:${list}">
+            <span class="what_info">商品名：</span>
+            <span class="info_content" th:text="${o.name}">苹果6s</span><br/>
+            <span class="what_info">需要数量：</span>
+            <span class="info_content" th:text="${o.quantity}">3</span><br/>
+            <span class="what_info">预估单价：</span>
+            <span class="info_content" th:text="'￥'+${o.price}+'元'">20.00</span><br/>
+            <span class="what_info">买家信息：</span>
+            <a th:href="'/watch_personal_info.do?id='+${o.uid}" th:text="${o.uname}">wxs</a></br>
+            <span class="what_info" style="float: left">详情：</span>
+
+            <textarea readonly="readonly" class="info_content" style="resize: none;width: 250px;height: 100px"
+                      th:text="${o.remark}">这是一哈哈哈哈哈哈哈哈哈打撒打撒个商品，联系电话1111111111</textarea><br/>
+            <span class="what_info">分类：</span>
+            <span class="info_content" th:text="${o.sort}">数码科技-手机-苹果</span><br/>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

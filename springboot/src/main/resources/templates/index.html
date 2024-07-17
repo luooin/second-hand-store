@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>校园寻宝店铺</title>
+    <link rel="icon" href="/img/favicon.ico"/>
+    <link th:href="@{/css/home_page/home_page_circle.css}" rel="stylesheet"/>
+    <link th:href="@{/css/home_page/header_and_nav.css}" rel="stylesheet"/>
+    <link th:href="@{/css/home_page/bottom_ifon_and_feature.css}" rel="stylesheet"/>
+    <script th:src="@{/js/jquery-1.3.2.min.js}"></script>
+    <script th:src="@{/js/home/home_page_circle.js}"></script>
+    <script th:src="@{/js/home/header_model_js.js}"></script>
+</head>
+<body>
+<!--整体结构很明确，就是轮播图的位置用了绝对位置感觉很不好，然后接下来那些都用了绝对位置，很尴尬-->
+<header th:include="header :: copy"></header>
+<div th:include="short_nav_show :: short_nav_show" class="short_nav_show"></div>
+<nav th:include="my_nav :: my_nav" class="my_nav"></nav>
+<div th:include="personal_nav :: personal_nav" class="personal_nav"></div>
+<div class="my_slider">
+    <div class="my_slide current">
+        <h1>关于我们</h1>
+        <p>
+            校园二手交易平台是一个专注于服务学生群体的在线平台
+            旨在促进校内学生间二手物品的买卖与交换，既环保又经济，让闲置物品找到新主人。
+        </p>
+        <div class="slide_img">
+            <img src="/img/home/introduce/1.jpg" style="width: 400px;height: 270px"/>
+        </div>
+    </div>
+    <div class="my_slide">
+        <h1>使用说明 </h1>
+        <p>
+            校内师生可以通过本网站浏览校内同学发布的二手商品或求购商品信息
+            登陆后可以通过本网站出售闲置的物品或购买心仪的二手商品，收藏商品，修改个人信息等操作
+        </p>
+        <div class="slide_img">
+            <img src="/img/home/rBEQYFGbHbIIAAAAAAKw4BQkpv4AABqfgAhcuwAArD4706.jpg" style="width: 400px;height: 270px"/>
+        </div>
+    </div>
+    <div class="my_slide">
+        <h1>团队信息</h1>
+        <p>
+            该网站由LD完成。有疑问可以发送问题至邮箱 1234567890qq.com
+        </p>
+        <div class="slide_img">
+            <img src="/img/home/1.png" style="width: 400px;height: 270px"/>
+        </div>
+    </div>
+    <div class="my_slide">
+        <h1>版权声明</h1>
+        <p>
+            本网站社区发布的所有信息，都视为发布者同意本网站免费予以使用；
+            同时本网站认为其发布的信息有侵权、违法等行为的，有权予以修改、删除或通知发布者予以纠正的权利，发布者不得阻止或拒绝。
+        </p>
+        <div class="slide_img">
+            <img src="/img/home/583930a6N11a0352c.jpg" style="width: 400px;height: 270px"/>
+        </div>
+    </div>
+    <div class="left_border">
+        <span class="left_turn"></span>
+    </div>
+    <div class="right_border">
+        <span class="right_turn"></span>
+    </div>
+</div>
+<div class="featured_products">
+    <h2>最新商品</h2>
+    <figure class="product" th:each="o:${shopInformationBean}">
+        <div class="product_img_div">
+            <img src="/img/home/feature_prodects/cont1.jpg" class="show_img" th:src="${o.image}"/>
+        </div>
+        <p class="show_tip" th:text="${o.remark}"></p>
+        <input type="hidden" th:value="${o.id}"/>
+        <a class="product_name" th:href="'/selectById.do?id='+${o.id}" th:text="${o.name}" th:title="${o.name}">wsk1103</a><br/>
+        <span class="product_cost" th:text="'￥'+${o.price}+'元'">$350.00</span><br/>
+        <a class="detail" th:href="'/selectById.do?id='+${o.id}" >详情</a>
+        <span class="buy" th:value="${o.id}">收藏</span>
+    </figure>
+</div>
+
+</body>
+</html>

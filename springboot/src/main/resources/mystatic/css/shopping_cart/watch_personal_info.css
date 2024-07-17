@@ -1,0 +1,65 @@
+body{
+    font-family: 'SimSun';
+}
+
+.top_content {
+    width: 99%;
+    height: auto;
+    /*background-color: aquamarine;*/
+    position: absolute;
+    display: block;
+}
+.publish_product_div {
+    padding-top: 1%;
+    padding-bottom: 5%;
+    width: 70%;
+    height: auto;
+    margin-left: 15%;
+    margin-top: 12%;
+    margin-bottom: 2%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+    display: inline-block;
+}
+
+.product_info_div {
+    width: 60%;
+    display: block;
+    float: left;
+    margin-left: 20%;
+    line-height: 2.1em;
+    margin-top:3%;
+}
+
+.what_info {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.info_content{
+    margin-left: 2%;
+}
+
+.return_button {
+    margin-left: 80%;
+}
+.return_button:hover{
+    cursor: pointer;
+}
+
+footer {
+    width: 96%;
+    background-color: #ff8417;
+    box-shadow: 4px 2px 10px #888888;
+    border-radius: 10px;
+    height: 80px;
+    margin-left: 2%;
+}
+footer p {
+    padding-top: 35px;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+    font-size: 1.2em;
+}
